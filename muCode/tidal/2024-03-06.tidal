@@ -1,0 +1,5 @@
+-- 2024-03-06
+
+d1 $ sound "cpu"
+
+d2 $ sound "bd"

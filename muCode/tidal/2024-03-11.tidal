@@ -1,0 +1,64 @@
+-- - 'squiz'
+d1 $ sound "laugh:10" # squiz 10
+d1 silence
+hush
+d1 $ n "0 4 [3 4] 3" # sound "cpu" # vowel "a"
+
+d1 $ n "0 4 [3 0] 3" # sound "cpu" # speed 2
+-- speed up
+d1 $ n "0 4 [3 0] 3" # sound "cpu" # crush 8
+-- low number means much distortion
+-- all effects are listed in userbase here:
+-- https://tidalcycles.org/docs/reference/audio_effects/
+
+d1 $ n "0 4 4 [3 4]" # sound "cpu" # crush "15 3"
+-- crush value of 16 in second half, first half has value of 3
+
+-- combining patterns
+-- the # symbol takes two patterns and puts them together
+  -- Structure to the left is always the starting point.
+  -- Then it looks for values on the right to match it with
+
+d1 $ n "0 4 4 [3 4]" # sound "cpu" # crush "15 3" # squiz "7 3*4 0 4*2 5 3 [2 3] 4"
+-- The dollar sign is taking everything to the right and treating it as a whole pattern to pass to the d1
+
+
+
+-- Time Manipulation; setting CPS and Some Functions
+
+d1 $ n "0 2 [3 5] [4 7]" # sound "cpu"
+d1 silence
+
+-- cps as an effects
+d2 $ n "0(3,8) 8*8" # sound "cpu2"
+  # squiz " 5 16" # cps "0.5  1  0.35  0.9"
+  --  first half running at cps 1, second half at cps 2
+
+d2 $ n "0(3,8) 8*8" # sound "cpu2"
+    # squiz " 5 16" # cps (saw + 0.5)
+
+hush
+
+-- REMEMBER
+  -- CTRL ENTER to run a block
+  -- SHIFT ENTER to run a line
+  -- putting cps as an effect has a global effect
+  -- normally we get tempo in bpm, tidal calculates the cycles per seconds
+
+
+-- FAST AND SLOW Functions
+setcps 0.6
+d1 $ fast 2 n "0 2 [3 5] [4 7]" # sound "cpu"
+-- This won't work, because we need n to be read as a pattern too
+
+d1 $ fast 0.5 $ n "0 2 [3 5] [4 7]" # sound "cpu"
+
+-- fast 0.5 = slow 2
+
+d1 $ slow 2 $ n "0 2 [3 5] [4 7]" # sound "cpu"
+
+d1 $ slow (6/7) $ n "0 2 [3 5] [4 7]" # sound "cpu"
+
+
+d1 $ fast "0.5 2" $ n "0 2 [3 5] [4 7]" # sound "cpu"
+--  you can also make patterns with fast and slow in mini notation

@@ -1,0 +1,15 @@
+d1 $ sound "bd cp sd arpy"
+hush --makes ALL sound stop. Location of this does not matter
+
+d2 $ s "arpy ~ arpy"
+  # crush 3 -- this is a bitcrush effect
+
+-- d1 silence -- Stopping d1. Location of this does not matter
+-- d2 silence -- Stopping d2. Location of this does not matter
+-- hush
+-- d2 $ s "bd*5"
+--   # crush 3
+
+-- d3 $ s "hh ~ hh hh"
+-- d4 $ s "hh [bd [hh hh]]"
+hush

@@ -1,0 +1,100 @@
+-- 2024-03-07
+
+-- d1 $ sound "palate"
+-- hush
+
+-- Mini notation --
+
+d1 $ sound "kick snare"
+d1 silence
+
+d2 $ s "scream:2"
+d2 silence
+
+d3 $ n "0" # s "scream"
+d3 silence
+
+d4 $ n "[0 7 4 4] [7 4 6 8] [4 7 0]" # s "kick"
+hush
+-- ******* --
+
+-- speeding up, repeat, slow down
+d5 $ s "hi lo*3"
+hush
+-- This is another way of writing it, and it picks up the cycle where it left off
+d5 $ s "hi [hi lo]*1.5"
+hush
+d5 $ s "[hi [hi lo]*1.5]*2"
+hush
+
+d5 $ s "hi [hi lo]!6"
+hush
+-- ! makes it repeat on the same metric level
+
+-- slowing down
+d5 $ s "hi lo/2"
+hush
+-- It plays the second half the second time around
+
+d5 $ s "clap:4 [hi lo]/2"
+hush
+
+d5 $ s "[clap:4 [hi lo]/2]*2"
+-- clap hi clap lo
+hush
+--  we use slash to slow down
+
+d5 $ fast 4 $ s "clap:4 [hi lo]/2"
+hush
+
+d5 $ fast 4 $ s "scream/2"
+hush
+-- ******* --
+
+-- polyphony with ','
+
+d1 $ sound "bd sn"
+d2 $ s "arpy*3"
+hush
+
+-- or we can the above as:
+d1 $ s "[bd sn, arpy*3]"
+hush
+
+d1 $ fast 4 $ s "[bd sn, arpy arpy:4 arpy:5]"
+hush
+
+-- Using curly brackets to make things line up
+-- Phasing things in and out of each other
+
+d1 $ fast 4 $ s "{bd sn, cpu:4 cpu:7 cpu:0}"
+hush
+
+-- ******* --
+
+-- rhythmic feet with '.'
+
+d1 $ s "[bd sn] [mt ht lt] [bd sn] [mt ht lt]"
+hush
+-- can be written the same way as
+d1 $ s "bd sn . mt ht lt . bd sn . mt ht lt"
+-- but you can't do sub sequences with . like you can with []
+
+-- ******* --
+
+-- one step per cycle with <>
+
+d1 $ fast 3 $ s "hi [arpy arpy:1 arpy:2]/3"
+hush
+-- can be written the same as
+d1 $ fast 3 $ s "hi*2 <arpy arpy:1 arpy:2 arpy:5>"
+hush
+-- so one arpy sound per cycle is happening
+hush
+
+-- GENERAL NOTES
+-- s and sound mean the same thing
+-- " " means our mini notation is there
+-- The more things we add inside our loop, the more subdivisions we get within the cycle
+-- The cycles are constant, but we can stretch things to run over the cycles
+-- You can select different sounds within a sample back using bank:N

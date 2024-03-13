@@ -1,0 +1,32 @@
+d1 $ n "0 [1 0 2 4]*3 2 4 1*2 3" # s "{tscream, scream}"
+  # vowel " e i u "
+  # speed "1 2 3 "
+
+d1 silence
+hush
+
+d2 $ hurry "<5 0.45>" $ n "0 1 0 [2 4] 2 4 1*2 3" # s "{tplosive, plosive tscream}"
+  -- # vowel " a e i"
+  |*| speed "2 12 3 "
+  d2 silence
+
+d3 $ hurry "<2 4.5>" $ n "3 8  2" # s "tlaugh"
+  # vowel " a e i"   * speed "2 3 "
+  d3 silence
+
+d4 $ hurry "<1.2 5>" $ n "0 1 0 [2 4] 2" # s "tyells"
+  # vowel " a e i"
+  |+| speed "2 3 "
+  d4 silence
+
+  d1 $ speed "1 2 3" # n "0 1 0 [2 4] 2 4 1*2 3" # s "{tscream, scream}"
+    -- # vowel " a e i"
+  |*| speed "5 2 3 "
+
+  d5 $ hurry 0.7 $ s "{laugh:4, laugh}" # n "5 4 2 3 1"
+  d5 silence
+
+
+
+
+  hush

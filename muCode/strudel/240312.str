@@ -1,0 +1,6 @@
+({samples,
+
+a: 'D:\kelse\03_Repositories\sounds\OG\A\28-A_spoken-190430_1514-001-001.wav'
+
+})
+note("c4").s("a")

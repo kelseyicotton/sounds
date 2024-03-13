@@ -1,0 +1,28 @@
+-- - 'squiz'
+d1 $ sound "laugh:1" # squiz 6
+-- distorts
+
+-- - 'vowel'
+
+d1 $ fast 4 $ n "0 5 3 2" # sound "swish"
+-- # vowel "u"
+-- # squiz 2
+-- - 'speed'
+d2 $ fast 4 $ n " 0 0 5 3 2" # sound "whimper"
+-- # vowel "u"
+# squiz 2
+
+d3 $ fast 1 $ n " 0" # sound "tyells"
+
+d2 $ fast 1 $ n "<0 0>  0 [~ 4]" # sound "tpalate"
+d2 silence
+
+d3 $ slow 1 $ n "1 5 3 2 4" # s "scream scream:3"
+# vowel "[ a e o]"
+hush
+-- get ready!!!
+-- - combining patterns
+d1 silence
+d2 silence
+
+hush
